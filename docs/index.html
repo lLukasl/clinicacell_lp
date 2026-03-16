@@ -1,15 +1,179 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clínica Cell - Loja de Celulares e Acessórios em Brasília DF</title>
-    <script type="module" crossorigin src="/assets/index-sZ4YPE-m.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C-axlg3Z.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Cell - Especialistas em Reparo de Dispositivos Móveis</title>
+    <style>
+        :root {
+            --primary: #e31e24; 
+            --secondary: #25d366; 
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; background-color: #fff; }
+        header { background: white; padding: 20px; text-align: center; border-bottom: 3px solid var(--primary); }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        
+        /* Localização Automática */
+        .loc-box { background: #f9f9f9; border: 2px dashed #ccc; padding: 25px; border-radius: 12px; text-align: center; margin-bottom: 40px; }
+        .btn-loc { background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: 0.3s; }
+        .btn-loc:hover { background: #b3161a; }
+        
+        /* Grid de Serviços */
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid var(--primary); }
+        
+        /* Lista de Lojas */
+        .lojas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 30px; }
+        .loja-item { border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center; }
+        
+        /* Botões */
+        .whatsapp-btn { background: var(--secondary); color: white; display: inline-block; text-align: center; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; width: 80%; }
+        
+        /* Rodapé Compliance */
+        footer { background: var(--dark); color: white; padding: 40px 20px; margin-top: 50px; font-size: 0.85rem; }
+        .disclaimer { border-top: 1px solid #444; margin-top: 20px; padding-top: 20px; color: #aaa; text-align: justify; }
+    </style>
+</head>
+<body>
 
+<header>
+    <div style="font-size: 2rem; font-weight: bold; color: var(--primary);">CLÍNICA CELL</div>
+    <p style="margin: 5px 0;">Manutenção Especializada de Smartphones e Tablets</p>
+</header>
+
+<div class="container">
+    
+    <section class="loc-box">
+        <h2>Localizar Unidade Mais Próxima</h2>
+        <p id="status">Ative sua localização para falar direto com o técnico mais perto de você.</p>
+        <button class="btn-loc" onclick="getLocation()">BUSCAR LOJA MAIS PRÓXIMA</button>
+        <div id="result" style="margin-top: 20px;"></div>
+    </section>
+
+    <section>
+        <h2 style="text-align: center; color: var(--dark);">Serviços Garantidos</h2>
+        <div class="services">
+            <div class="card">
+                <h3>Telas e Displays</h3>
+                <p>Substituição de frontais com tecnologia de alta fidelidade para dispositivos iOS e Android.</p>
+            </div>
+            <div class="card">
+                <h3>Baterias Homologadas</h3>
+                <p>Troca imediata de baterias que não seguram carga, seguindo padrões rigorosos de segurança.</p>
+            </div>
+            <div class="card">
+                <h3>Reparos em Placa</h3>
+                <p>Diagnóstico avançado e soldas de precisão em componentes internos e conectores.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 50px;">
+        <h2 style="text-align: center;">Nossas Unidades em Brasília</h2>
+        <div class="lojas-grid">
+            <div class="loja-item">
+                <strong>GAMA</strong><br>
+                (61) 99125-9843<br>
+                <a href="https://wa.me/5561991259843" class="whatsapp-btn">WhatsApp</a>
+            </div>
+            <div class="loja-item">
+                <strong>N. BANDEIRANTE</strong><br>
+                (61) 99233-7476<br>
+                <a href="https://wa.me/5561992337476" class="whatsapp-btn">WhatsApp</a>
+            </div>
+            <div class="loja-item">
+                <strong>SUDOESTE</strong><br>
+                (61) 99334-9700<br>
+                <a href="https://wa.me/5561993349700" class="whatsapp-btn">WhatsApp</a>
+            </div>
+            <div class="loja-item">
+                <strong>PONTE ALTA</strong><br>
+                (61) 99347-9107<br>
+                <a href="https://wa.me/5561993479107" class="whatsapp-btn">WhatsApp</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+            <div>
+                <strong>HORÁRIO DE FUNCIONAMENTO:</strong><br>
+                Segunda a Sexta: 08:00 às 18:00<br>
+                Sábado: 08:00 às 16:00
+            </div>
+            <div>
+                <strong>ATENDIMENTO:</strong><br>
+                Brasília - DF e Região Metropolitana
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <p><strong>INFORMAÇÃO LEGAL (GOOGLE ADS COMPLIANCE):</strong> A Clínica Cell declara ser uma assistência técnica multimarcas independente. Não possuímos vínculo direto, autorização oficial ou parceria comercial exclusiva com as marcas Apple Inc., Samsung Electronics, Motorola ou outras citadas. O uso de nomes de modelos e marcas visa apenas informar a compatibilidade dos serviços de reparo prestados. Orçamentos sem compromisso e garantia legal inclusa.</p>
+            <p style="font-size: 0.75rem; color: #777;">&copy; 2024 Clínica Cell - Todos os direitos reservados. CNPJ: [INSIRA SEU CNPJ AQUI]</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const lojas = [
+        { nome: "Clínica Cell - Gama", lat: -16.0183, lon: -48.0675, tel: "(61) 99125-9843", link: "https://wa.me/5561991259843" },
+        { nome: "Clínica Cell - Núcleo Bandeirante", lat: -15.8742, lon: -47.9664, tel: "(61) 99233-7476", link: "https://wa.me/5561992337476" },
+        { nome: "Clínica Cell - Sudoeste", lat: -15.7981, lon: -47.9205, tel: "(61) 99334-9700", link: "https://wa.me/5561993349700" },
+        { nome: "Clínica Cell - Ponte Alta Norte", lat: -15.9892, lon: -48.0520, tel: "(61) 99347-9107", link: "https://wa.me/5561993479107" }
+    ];
+
+    function getLocation() {
+        const status = document.getElementById('status');
+        if (navigator.geolocation) {
+            status.innerHTML = "Buscando sinal de GPS...";
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            status.innerHTML = "Seu navegador não suporta geolocalização.";
+        }
+    }
+
+    function showPosition(position) {
+        let userLat = position.coords.latitude;
+        let userLon = position.coords.longitude;
+        let maisProxima = null;
+        let menorDistancia = Infinity;
+
+        lojas.forEach(loja => {
+            let dist = getDistance(userLat, userLon, loja.lat, loja.lon);
+            if (dist < menorDistancia) {
+                menorDistancia = dist;
+                maisProxima = loja;
+            }
+        });
+
+        document.getElementById('status').innerHTML = "Loja encontrada!";
+        document.getElementById('result').innerHTML = `
+            <div style="padding: 15px; background: #e8f5e9; border: 1px solid #25d366; border-radius: 8px;">
+                <span style="color: #2e7d32;">✔</span> A unidade mais próxima é a do <strong>${maisProxima.nome.split('-')[1]}</strong><br>
+                <small>Telefone: ${maisProxima.tel}</small><br>
+                <a href="${maisProxima.link}" class="whatsapp-btn" style="width: auto; padding: 12px 40px;">INICIAR CONVERSA AGORA</a>
+            </div>
+        `;
+    }
+
+    function showError(error) {
+        document.getElementById('status').innerHTML = "Não foi possível obter sua localização. Escolha uma unidade abaixo manualmente.";
+    }
+
+    function getDistance(lat1, lon1, lat2, lon2) {
+        var R = 6371;
+        var dLat = deg2rad(lat2-lat1);
+        var dLon = deg2rad(lon2-lon1); 
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2); 
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        return R * c;
+    }
+    function deg2rad(deg) { return deg * (Math.PI/180); }
+</script>
+
+</body>
+</html>
